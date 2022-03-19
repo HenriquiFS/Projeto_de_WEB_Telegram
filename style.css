@@ -41,8 +41,32 @@
     padding: 15.5px 15px;
     font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
     text-decoration-line: none;
-    color: #0088CC;]
+    color: #0088CC;
     font-size: 15px;
+  }
+
+  #globo{
+  }
+
+  #triangulo-para-baixo {
+    position: relative;
+    top: 12px;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #0088CC;
+  }
+
+  #ptbr{
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  #twitterlogo{
+    padding-left: 15px;
+  }
+
+  #twittertext{
+    padding-left: 0;
   }
   
   /* RESTO DA PÁGINA */
@@ -59,25 +83,27 @@
   /* MEIO DA PÁGINA */
   
   .container_do_meio {
+    position: relative;
+    top: 20px;
     max-width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
   }
   
   .container_logo_tl {
+    position: relative;
+    margin: 0 auto;
+    padding: 20px 0 20px 0;
     width: 400px;
     height: 228px;
-    
+    text-align: center;
   }
   
   .telegram_logo {
-  
   }
   
   .telegram_nome_grande {
-  
   }
   
   .nova_era {
@@ -88,8 +114,13 @@
   }
   
   .novidades_recentes {
+    position: absolute;
+    height: 243px;
+    width: 200px;
+    right: 137px;
     border-left: 5px solid #179CDE;
-    
+    padding: 5px 17px 5px 0;
+    margin: 0 0 17px 26px;
   }
 
   .data_noticias{
@@ -126,9 +157,32 @@
 
   
   .telegram_android {
+    margin: 40px 0;
   
+  }
+
+  .icone_android{
+    margin-top: -3px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 25px;
+    height: 30px;
+    background: url(https://telegram.org/img/SiteLogos.png) 0 -46px no-repeat;
+    margin-right: 10px;
+}
+
+  .icone_apple{
+      height: 23px;
+      margin-top: -3px;
+      display: inline-block;
+      vertical-align: text-top;
+      width: 25px;
+      height: 30px;
+      background: url(https://telegram.org/img/SiteLogos.png) 0 0 no-repeat;
+      margin-right: 10px;
   }
   
   .telegram_iphone {
-  
+    margin: 40px 0;
+
   }
