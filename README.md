@@ -2,9 +2,9 @@
 
 Projeto da disciplina de Programação WEB com o objetivo de replicar algumas partes do site escolhido.
 
-Alunos: Henriqui Ferreira Segantini 1885120
-
-        Isabela Souza Pirola
+Alunos: 
+Henriqui Ferreira Segantini 1885120
+Isabela Souza Pirola
         
 Página original: https://telegram.org/ 
 
