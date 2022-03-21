@@ -28,8 +28,8 @@
   
   #menu_inicio{
     border-bottom: 3px solid #179CDE;
-    border-radius: 3px;
-    padding-bottom: 0.9em;
+    border-radius: 2px;
+    padding-bottom: 0.6em;
   }
 
   .linkmenu{
@@ -41,6 +41,7 @@
   }
 
   #globo{
+
   }
 
   #triangulo-para-baixo {
@@ -82,7 +83,8 @@
     top: 20px;
     max-width: 100%;
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   /* LOGO CENTRAL DO TELEGRAM */
@@ -110,49 +112,13 @@
 
   /* NOVIDADES RECENTES */
   
-  /*
-  .novidades_recentes_wrap{
-    background: none;
-    padding: 5px 17px 5px 0;
-    margin: 0 0 17px 26px;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: start;
-    align-items: stretch;
-    align-content: start;
-  }
-
-  ::before{
-    box-sizing: border-box;
-  }
-
-  .side_blog_wrap::before {
-    content: " ";
-    display: block;
-    width: 5px;
-    background: rgb(23, 156, 222) none repeat scroll 0% 0%;
-    border-radius: 5px;
-    overflow: hidden;
-    flex: 0 0 auto;
-    margin: 0px 17px 0px 0px;
-  }
-
-  .novidades_recentes {
-    margin-top: 20px;
-    padding: 15px 20px 20px;
-    width: 200px;
-    position: absolute;
-    right: 137px;
-  }
-  */
   .novidades_recentes {
     position: absolute;
     right: 2.2em;
     width: 12em;
     padding-left: 18px;
     border-left: 5px solid #179CDE;
-    border-radius: 4px;
+    border-radius: 3px;
     margin: 20px 0 17px 26px;
   }
 
@@ -235,5 +201,32 @@
 
   .span_bold{
     font-weight: bold;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .flexbox_1 {
+      display: block;
+    }
+    .container_do_meio {
+      position: static;
+      display: block;
+      justify-content: center;
+    }
+    .novidades_recentes {
+      position: static;
+      width: 100%;
+    }
+    .container_logo_tl {
+      position: static;
+    }
+    .container_de_baixo {
+      position: static;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    .desaparece767 {
+      display: none;
+    }
   }
   
