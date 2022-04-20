@@ -46,6 +46,8 @@
 
   .menu_right{
     align-content: center;
+    display: flex;
+    flex-direction: row;
   }
 
   #globo{
@@ -71,6 +73,24 @@
 
   #twittertext{
     padding-left: 0;
+  }
+
+  #login_button{
+    background-color: white;
+    width: 70px;
+    height: 25px;
+    color: #0088CC;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
+    border: 1px solid #8c8c8c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #login_button:hover{
+    background-color: #0088CC;
+    color: white;
+    cursor: pointer;
   }
   
   /* RESTO DA PÁGINA */
