@@ -50,10 +50,6 @@
     flex-direction: row;
   }
 
-  #globo{
-
-  }
-
   #triangulo-para-baixo {
     position: relative;
     top: 12px;
@@ -91,6 +87,10 @@
     background-color: #0088CC;
     color: white;
     cursor: pointer;
+  }
+
+  .login_box{
+    display: none;
   }
   
   /* RESTO DA PÁGINA */
@@ -230,6 +230,10 @@
 
   .span_bold{
     font-weight: bold;
+  }
+
+  .container_busca{
+    display: none;
   }
 
   @media only screen and (max-width: 1000px) {
