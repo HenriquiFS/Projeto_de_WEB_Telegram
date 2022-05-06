@@ -90,7 +90,49 @@
   }
 
   .login_box{
+    background-color: #0088CC;
     display: none;
+    align-self: center;
+    margin: 25px;
+    padding: 25px;
+    flex-direction: column;
+    border-radius: 5px;
+  }
+
+  .txtLoginBox{
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
+    font-size: 16px;
+    color: white;
+    align-self: center;
+    margin: 6px;
+  }
+
+  #login_email{
+    height: 25px;
+    width: 225px;
+    padding: 4px;
+  }
+
+  #login_senha{
+    margin-bottom: 15px;
+    height: 25px;
+    width: 225px;
+    padding: 4px;
+  }
+
+  #confirm{
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
+    font-size: 16px;
+    color: #0088CC; 
+    border-radius: 5px; 
+    font-weight: bold;
+    width: 150px;
+    align-self: center; 
+  }
+
+  #confirm:hover{
+    transform: scale(1.1);
+    box-shadow: 4px 2px 2px black;
   }
   
   /* RESTO DA PÁGINA */
@@ -233,7 +275,46 @@
   }
 
   .container_busca{
+    background-color: #0088CC;
     display: none;
+    align-self: center;
+    margin: 25px;
+    padding: 25px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+  }
+
+  .charBoxTxt{
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
+    font-size: 18px;
+    color: white;
+    margin: 6px;    
+    text-align: center;
+  }
+
+  #input_api{
+    height: 30px;
+    width: 225px;
+    padding: 4px;
+    margin: 5px;
+  }
+
+  #buscar_api{
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
+    font-size: 16px;
+    color: #0088CC; 
+    border-radius: 5px; 
+    font-weight: bold;
+    width: 150px;
+    align-self: center; 
+    padding: 2px;
+    margin: 5px;
+  }
+
+  #buscar_api:hover{
+    transform: scale(1.1);
+    box-shadow: 4px 2px 2px black;
   }
 
   @media only screen and (max-width: 1000px) {
