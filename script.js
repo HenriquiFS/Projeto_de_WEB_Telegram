@@ -37,7 +37,7 @@ function fazer_login(auxEmail, auxSenha){
   .then( function (res) {
     var resToken = res.data.token;
     guardaToken = resToken;
-    alert("Token: " + guardaToken);
+    alert('Login efetuado com sucesso!');
     document.querySelector('.container_busca').style.display = 'flex';
     document.querySelector('#login_button').innerHTML = 'Logout';
 
@@ -53,24 +53,44 @@ function fazer_login(auxEmail, auxSenha){
 confirmButton.addEventListener('click', () => {
   var loginEmail = document.querySelector('#login_email').value;
   var loginSenha = document.querySelector('#login_senha').value;
-  fazer_login(loginEmail, loginSenha);
+  var erroEmail = document.querySelector('#erro_email');
+  var erroSenha = document.querySelector('#erro_senha');
+  if(loginEmail.length <= 3){
+    erroEmail.innerHTML = "O E-mail precisa ter no mínimo 3 caracteres!";
+    erroSenha.innerHTML = "";
+    
+  } else if(loginSenha.length <= 3){
+    erroEmail.innerHTML = "";
+    erroSenha.innerHTML = "A senha precisa ter no mínimo 3 caracteres!";
 
+  } else{
+    erroEmail.innerHTML = "";
+    erroSenha.innerHTML = "";
+    fazer_login(loginEmail, loginSenha);
+  }
 });
 
 buttonBuscarAPI.addEventListener('click', () => {
   var input = document.querySelector('#input_api');
-  charName = input.value;
+  var input_tamanho = document.querySelector('#input_api').value;
+  var erroBusca = document.querySelector('#erro_busca');
+  var charName = input.value;
 
-  request.open('GET', 'https://amiiboapi.com/api/amiibo/?name=' + charName, true)
+  if(input_tamanho.length <= 3){
+    erroBusca.innerHTML = "A busca precisa ter no mínimo 3 caracteres!";
+  } else{
+    erroBusca.innerHTML = "";
+    request.open('GET', 'https://amiiboapi.com/api/amiibo/?name=' + charName, true)
 
-  request.onreadystatechange = function () {
-    if (request.readyState === 4 && request.status === 200) {
-      let resposta = JSON.parse(request.responseText)
-      console.log(resposta);
-      char_name_txt.innerHTML = resposta.amiibo[0].character;
-      char_img.src = resposta.amiibo[0].image;
-    }
-  }  
-  request.send()
+    request.onreadystatechange = function () {
+      if (request.readyState === 4 && request.status === 200) {
+        let resposta = JSON.parse(request.responseText)
+        console.log(resposta);
+        char_name_txt.innerHTML = resposta.amiibo[0].character;
+        char_img.src = resposta.amiibo[0].image;
+      }
+    }  
+    request.send()
+  }
 });
 

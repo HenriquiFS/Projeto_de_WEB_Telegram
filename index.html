@@ -47,8 +47,10 @@
     <div class="login_box">
       <p class="txtLoginBox">E-mail</p>
       <input id="login_email" type="text">
+      <p id="erro_email"></p>
       <p class="txtLoginBox">Senha</p>
       <input id="login_senha" type="text">
+      <p id="erro_senha"></p>
       <button id="confirm">Confirmar</button>
     </div>
 
@@ -101,7 +103,9 @@
     </div>
 
     <div class="container_busca">
-      <input type="text" name="" placeholder="Digite o nome do personagem" id="input_api" />
+      <p class="charBoxTxt">Digite o nome de um amiibo:</p>
+      <input type="text" name="" placeholder="Digite o nome do personagem" id="input_api"/>
+      <p id="erro_busca"></p>
       <button id="buscar_api">BUSCAR</button>
       <div class="search_results">
         <p class="charBoxTxt">
