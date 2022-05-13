@@ -33,6 +33,9 @@ loginButton.addEventListener('click', () => {
 
 // Função que realiza o login
 function fazer_login(auxEmail, auxSenha){
+  var erro_no_login = document.querySelector('#erro_senha');
+  erro_no_login.innerHTML = "";
+
   axios.post('https://reqres.in/api/login',{
     "email": auxEmail,
     "password": auxSenha
@@ -45,7 +48,7 @@ function fazer_login(auxEmail, auxSenha){
     localStorage.setItem("login", isLogged);
   })
   .catch( () => {
-    alert("Erro ao realizar Login.");
+    erro_no_login.innerHTML = "Erro ao realizar login";
   });
 }
 
