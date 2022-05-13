@@ -336,6 +336,12 @@
     box-shadow: 4px 2px 2px black;
   }
 
+  #search_results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   @media only screen and (max-width: 1000px) {
     .flexbox_1 {
       display: block;

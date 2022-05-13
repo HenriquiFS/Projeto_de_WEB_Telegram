@@ -4,21 +4,23 @@ var char_name_txt = document.querySelector('#char_name'),
     buttonBuscarAPI = document.querySelector('#buscar_api'),
     loginButton = document.querySelector('#login_button'),
     confirmButton = document.querySelector('#confirm'),
-    charName = null;
-    guardaToken = null;
+    resultados_api = document.querySelector('#search_results'),
     isLogged = false;
 
-if(localStorage.getItem("token") === "QpwL5tke4Pnpja7X4"){
+
+// Checa se o usuário já esta logado
+if(localStorage.getItem("login")){
   isLogged = true;
   document.querySelector('#login_button').innerHTML = 'Logout';
   document.querySelector('.container_busca').style.display = 'flex';
 }
 
+
+// Processa o clique no botão de login
 loginButton.addEventListener('click', () => {
 
   if(isLogged===true){
-    alert("Saindo");
-    localStorage.setItem("token",null);
+    localStorage.removeItem("login");
     isLogged=false;
     document.querySelector('.container_busca').style.display = 'none';
     document.querySelector('.login_box').style.display = 'none';
@@ -29,32 +31,31 @@ loginButton.addEventListener('click', () => {
 
 });
 
+// Função que realiza o login
 function fazer_login(auxEmail, auxSenha){
   axios.post('https://reqres.in/api/login',{
     "email": auxEmail,
     "password": auxSenha
   })
   .then( function (res) {
-    var resToken = res.data.token;
-    guardaToken = resToken;
-    alert('Login efetuado com sucesso!');
+    isLogged = true;
     document.querySelector('.container_busca').style.display = 'flex';
     document.querySelector('#login_button').innerHTML = 'Logout';
 
-    localStorage.setItem("token", resToken);
-
-    isLogged = true;
+    localStorage.setItem("login", isLogged);
   })
   .catch( () => {
     alert("Erro ao realizar Login.");
   });
 }
 
+// Checa os inputs do usuário e senha e chama a função de login
 confirmButton.addEventListener('click', () => {
-  var loginEmail = document.querySelector('#login_email').value;
-  var loginSenha = document.querySelector('#login_senha').value;
-  var erroEmail = document.querySelector('#erro_email');
-  var erroSenha = document.querySelector('#erro_senha');
+  var loginEmail = document.querySelector('#login_email').value,
+      loginSenha = document.querySelector('#login_senha').value,
+      erroEmail = document.querySelector('#erro_email'),
+      erroSenha = document.querySelector('#erro_senha');
+
   if(loginEmail.length <= 3){
     erroEmail.innerHTML = "O E-mail precisa ter no mínimo 3 caracteres!";
     erroSenha.innerHTML = "";
@@ -70,11 +71,15 @@ confirmButton.addEventListener('click', () => {
   }
 });
 
+// Realizar uma busca com base na API selecionada
 buttonBuscarAPI.addEventListener('click', () => {
-  var input = document.querySelector('#input_api');
-  var input_tamanho = document.querySelector('#input_api').value;
-  var erroBusca = document.querySelector('#erro_busca');
-  var charName = input.value;
+  var input = document.querySelector('#input_api'),
+      input_tamanho = document.querySelector('#input_api').value,
+      erroBusca = document.querySelector('#erro_busca'),
+      charName = input.value;
+
+  resultados_api.innerHTML = "";
+  erroBusca.innerHTML = " ";
 
   if(input_tamanho.length <= 3){
     erroBusca.innerHTML = "A busca precisa ter no mínimo 3 caracteres!";
@@ -84,13 +89,31 @@ buttonBuscarAPI.addEventListener('click', () => {
 
     request.onreadystatechange = function () {
       if (request.readyState === 4 && request.status === 200) {
-        let resposta = JSON.parse(request.responseText)
-        console.log(resposta);
-        char_name_txt.innerHTML = resposta.amiibo[0].character;
-        char_img.src = resposta.amiibo[0].image;
-      }
+        let resposta = JSON.parse(request.responseText);
+        let resposta_tamanho = resposta.amiibo.length;
+
+        for( var i = 0; i < resposta_tamanho; i++){
+          var nome_amiibo = document.createElement('p'),
+              img_amiibo = document.createElement('img');
+
+          nome_amiibo.innerHTML = resposta.amiibo[i].character;
+          img_amiibo.src = resposta.amiibo[i].image;
+
+          nome_amiibo.style.color = 'white';
+          nome_amiibo.style.fontSize = '20px';
+          nome_amiibo.style.fontFamily = 'Lucida Grande, Lucida Sans Unicode, Arial, Helvetica, Verdana, sans-serif';
+          nome_amiibo.style.textAlign = 'center';
+          nome_amiibo.style.margin = '20px';
+
+          img_amiibo.style.borderBottom = '3px solid white';
+          img_amiibo.style.paddingBottom = '15px';
+
+          resultados_api.appendChild(nome_amiibo);
+          resultados_api.appendChild(img_amiibo);
+        };
+
+      } 
     }  
     request.send()
   }
 });
-
