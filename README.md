@@ -1,6 +1,6 @@
 # Projeto_de_WEB_Telegram
 
-Projeto da disciplina de Programação WEB com o objetivo de replicar algumas partes do site escolhido.
+Projeto da disciplina de Programação WEB com o objetivo de replicar algumas partes do site escolhido, implementar comunicação com uma API que permita o cadastro de usuários e outra que funcione como mecanismo de busca.
 
 Alunos: 
 
